@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Drupal hook implementations for Wizzlern Pegi module.
+ */
+
+use Drupal\user\Entity\User;
+
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ *
+ * Drupal has two mechanism for access control. One at database level and
+ * one using fully loaded entities. The first one (using hook_node_grants()
+ * and hook_node_access_records()) is preferred for performance. The second
+ * (using hook_ENTITY_TYPE_access()) uses the fully loaded entity and is
+ * preferred for edit and delete operations. It allows access check on dynamic
+ * data, but performs less for 'view' operations because the entity has to be
+ * loaded before access can be checked.
+ *
+ * @return bool|null
+ *   A boolean to explicitly allow or deny access, or NULL to neither allow nor
+ *   deny access.
+ *
+ * @see hook_ENTITY_TYPE_access()
+ */
+function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
+  /** @var \Drupal\node\Entity\Node $entity */
+  $access = NULL;
+  
+  // EXCERCISES
+  // 1. Check out the documentation of hook_ENTITY_TYPE_access() to understand
+  //    the $entity, $operation, $account and $langcode parameters.
+  // 2. Get the allowed age from the node.
+  // 3. Get the users's age.
+  // 4. Compare the two and allow/deny access as appropriate.
+  // 5. How does your code respond when the node has no allowed age field and/or
+  //    the user has no age set?
+
+  return $access;
+}

@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * @file
+ * Drupal hook implementations for Wizzlern Pegi module.
+ */
+
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Uncomment this function to determine the form ID of forms on any page. This
+ * is a frequently use trick to find the ID. hook_form_alter() is execute on
+ * all forms, but for performance it is preferred to implement
+ * hook_form_FORM_ID_alter().
+ */
+/*
+function wizzlern_pegi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  debug($form_id);
+}
+//*/
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the user login form. Removes the description from the password field.
+ */
+function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Note that &$form passes the form array by reference. The changes you to
+  // $form you make here will change the actual form.
+
+  unset($form['pass']['#description']);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the user registration form. Changes the order fields.
+ */
+function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // The mail and name fields are grouped in 'account'. Adding field to existing
+  // field groups like these may have unwanted side effects. Be careful.
+
+  $form['account']['mail']['#weight'] = 1;
+  $form['account']['name']['#weight'] = 3;
+  $form['account']['field_user_age'] = $form['field_user_age'];
+  $form['account']['field_user_age']['#weight'] = 2;
+  unset($form['field_user_age']);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ *
+ * Drupal has two mechanism for access control. One at database level and
+ * one using fully loaded entities. The first one (using hook_node_grants()
+ * and hook_node_access_records()) is preferred for performance. The second
+ * (using hook_ENTITY_TYPE_access()) uses the fully loaded entity and is
+ * preferred for edit and delete operations. It allows access check on dynamic
+ * data, but performs less for 'view' operations because the entity has to be
+ * loaded before access can be checked.
+ *
+ * @return bool|null
+ *   A boolean to explicitly allow or deny access, or NULL to neither allow nor
+ *   deny access.
+ *
+ * @see hook_ENTITY_TYPE_access()
+ */
+function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
+  /** @var \Drupal\node\Entity\Node $entity */
+  $access = NULL;
+
+  if ($entity->hasField('field_allowed_age')) {
+    $allowed_age = $entity->field_allowed_age->value;
+
+    /** @var \Drupal\user\Entity\User $user */
+    $user = User::load($account->id());
+    $age = $user->field_user_age->value;
+
+    // Deny access when user is too young. If old enough, we return NULL, not
+    // TRUE. Other modules can still deny access.
+    if ($age < $allowed_age) {
+      $access = FALSE;
+    }
+  }
+
+  return $access;
+}

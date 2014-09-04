@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Drupal hook implementations for Wizzlern Pegi module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Uncomment this function to determine the form ID of forms on any page. This
+ * is a frequently use trick to find the ID. hook_form_alter() is execute on
+ * all forms, but for performance it is preferred to implement 
+ * hook_form_FORM_ID_alter().
+ */
+/*
+function wizzlern_pegi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  debug($form_id);
+}
+//*/
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the user login form. Removes the description from the password field.
+ */
+function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+    // Note that &$form passes the form array by reference. The changes you to
+    // $form you make here will change the actual form.
+  
+  // EXERCISES
+  // Reduce the noise in the login form by removing the password field
+  // description.
+  // 1. Use the debug() function to check the content of $form.
+  // 2. Find the Password field in this data.
+  // 3. Remove the description from the password field.
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the user registration form. Changes the order fields.
+ */
+function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // The mail and name fields are grouped in 'account'. Adding field to existing
+  // field groups like these may have unwanted side effects. Be careful.
+  
+  // EXERCISES
+  // Change the order of fields on this form: 1st Email address, 2nd Age, 3rd
+  // Username.
+  // 1. Use the debug() function to check the content of $form and $form_state.
+  // 2. Use the '#weight' key to change the sort order of fields.
+}
