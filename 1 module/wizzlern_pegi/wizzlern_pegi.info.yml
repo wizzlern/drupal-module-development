@@ -14,3 +14,5 @@ core: 8.x
 # Other frequenty used properties:
 # dependencies: list of modules that this module requires.
 # configure: route definition of the module's configuration page.
+
+# More info about *.info.yml on https://www.drupal.org/node/2000204
