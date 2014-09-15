@@ -26,9 +26,9 @@ class NewGames extends BlockBase {
    * Implements \Drupal\block\BlockBase::blockBuild().
    */
   public function build() {
-    $output = '';
+    $output = 'FIX ME';
     $items = array();
-    
+
     // EXCERCISES
     // 1. Find out what formats for $output are allowed.
     // 2. Output some dummy text in the block.
