@@ -3,7 +3,8 @@ wizzlern_pegi.all_games:
   path: '/games'
   defaults:
   # EXCERCISES:
+  # Complete this page route defintion for the Games page.
   # - Search through Drupal core for a simple example of a page controller.
-  # - Complete this route definition to use the allGames page controller method.
+  # - Use the allGames page controller method.
   requirements:
   # - Add a permission check here. Can you use an existing permission?

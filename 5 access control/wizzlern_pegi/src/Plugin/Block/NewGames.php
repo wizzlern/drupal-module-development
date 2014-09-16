@@ -89,8 +89,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     $nodes = $this->entityManager->getStorage('node')->loadMultiple($nids);
 
     // EXERCISES
-    // Before links are added to the $items list, view access must be verified
-    // for the current user.
+    // Apply access control view nodes.
     // 1. Which method can be used for this access check?
     // 2. Can you find usage examples in Drupal core?
     // 3. Check it's documentation and apply the method you found.

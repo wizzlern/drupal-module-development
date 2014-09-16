@@ -69,7 +69,9 @@ class WizzlernPegiController extends ControllerBase {
   public function allGames() {
 
     // EXERCISES:
-    // - Use a query to load all games, just like you did in the new games block.
+    // Build output for the Games page.
+    // - Use a query to load all games, just like you did in the new games
+    //   block.
     // - Build a teaser view of each node.
     // - Build an HTML list of node views.
     // - (optional) Add a pager. Tip: It only takes one line of code in the
