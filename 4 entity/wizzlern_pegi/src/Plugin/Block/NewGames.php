@@ -86,7 +86,8 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     // 2. Find an entity query example that loads nodes.
     // 3. Write an entity query for: published nodes of type 'game', sorted
     //    most recent nodes first. Use debug() to output the query result.
-    // 4. Build an array of links to the nodes that have node titles as link text.
+    // 4. Build an array of links to the nodes that have node titles as link
+    //    text.
 
     // $nodes is an array of nodes. The result form the entity query.
     $nodes = array();
