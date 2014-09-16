@@ -93,7 +93,7 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     // for the current user.
     // 1. Which method can be used for this access check?
     // 2. Can you find usage examples in Drupal core?
-    // 3. Check it's documentation and apply the method you found.
+    // 3. Check its documentation and apply the method you found.
     
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
