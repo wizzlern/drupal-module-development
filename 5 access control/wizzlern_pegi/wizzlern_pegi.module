@@ -19,6 +19,14 @@ use Drupal\user\Entity\User;
  * data, but performs less for 'view' operations because the entity has to be
  * loaded before access can be checked.
  *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity to check access to.
+ * @param string $operation
+ *   The operation that is to be performed on $entity.
+ * @param \Drupal\Core\Session\AccountInterface $account
+ *    The account trying to access the entity.
+ * @param string $langcode
+ *    The code of the language $entity is accessed in.
  * @return bool|null
  *   A boolean to explicitly allow or deny access, or NULL to neither allow nor
  *   deny access.
