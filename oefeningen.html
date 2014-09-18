@@ -1,0 +1,132 @@
+<html>
+<body>
+  <p>Oefeningen voor de Drupal Training Day workshop <em>Programmeren</em>.</p>
+
+  <h2>Inhoud aanmaken</h2>
+
+  <p>Als redactie van de website wil ik zelfstandig pagina&rsquo;s kunnen aanmaken en bewerken.</p>
+
+  <ul>
+  	<li>Log-in als beheerder.</li>
+  	<li>Maak een artikel aan (Navigatie: Manage &gt; Content &gt; Add content &gt; Article).</li>
+  	<li>Voer in: &lsquo;title&rsquo;, &lsquo;body&rsquo;, &lsquo;tags&rsquo; en &lsquo;image&rsquo;.</li>
+  	<li>Sla het artikel op (Knop &lsquo;Save and publish&rsquo;)</li>
+  	<li>Bekijk het resultaat.</li>
+  </ul>
+
+  <h2>Inhoudstypes</h2>
+
+  <p>Als redactie kan ik games-recenties invoeren. Iedere game kan worden voorzien van een leeftijdscategorie.</p>
+
+  <ul>
+  	<li>Maak een inhoudstype &lsquo;game&rsquo; aan.</li>
+  	<li>Voeg een veld toe voor de leeftijdscategorie.&nbsp;
+  		<ul>
+  			<li>Naam: field_allowed_age</li>
+  			<li>Type: List (integer)</li>
+  			<li>Allowed values: 3, 7, 12, 16, 18</li>
+  		</ul>
+  	</li>
+  	<li>Maak een paar game-recenties aan.</li>
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <p>Als site eigenaar wil ik dat gebruikers alleen games-recenties kunnen zien van games die met hun leeftijd overeenkomen.</p>
+
+  <ul>
+  	<li>Voeg aan een gebruikersprofiel een veld toe voor de leeftijd.&nbsp;
+  		<ul>
+  			<li>Naam: field_user_age</li>
+  			<li>Type: Number (integer)</li>
+  			<li>Required</li>
+  		</ul>
+  	</li>
+  	<li>Maak een nieuwe gebruiker aan.</li>
+  </ul>
+
+  <h2>Regions en blokken</h2>
+
+  <p>Als site eigenaar wil graag laten zien dat mijn site met Drupal gemaakt is.</p>
+
+  <ul>
+  	<li>Plaats het blok &lsquo;Powered by Drupal&rsquo; in de voet van de pagina. (Navigatie: Manage &gt; Structure &gt; Blocks).</li>
+  	<li>Controleer het resultaat.</li>
+  </ul>
+
+  <h2>Drupal module</h2>
+
+  <p>Leg de basis voor de wizzlern_pegi-module.</p>
+
+  <ul>
+  	<li>Kopieer de &#39;wizzlern_pegi&#39; module uit het oefeningen &lsquo;1 module&rsquo; naar /modules/custom.</li>
+  	<li>Bekijk de inhoud van wizzlern_pegi.info.yml.</li>
+  	<li>Schakel de module in.</li>
+  </ul>
+
+  <h2>Formulier aanpassen</h2>
+
+  <p>Verwijder de wacthwoord-helptekst van het inlogformulier.</p>
+
+  <ul>
+  	<li>Bepaal het form_id van het te wijzingen formulier.</li>
+  	<li>Kopieer het wizzlern_pegi.module bestand uit oefeningen &lsquo;2 forms&rsquo;. Maak de oefeningen voor het inlogformulier.</li>
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <p>Plaats het leeftijdveld onder het veld &lsquo;Email address&rsquo;</p>
+
+  <ul>
+  	<li>Bepaal het form_id van het te wijzigen formulier.</li>
+  	<li>Maak de oefeningen voor het user registration-formulier.</li>
+  </ul>
+
+  <h2>Een blok</h2>
+
+  <p>Maak het blok waar straks de lijst met games in komt.</p>
+
+  <ul>
+  	<li>Kopieer het bestand NewGames.php uit oefeningen &lsquo;3 block&rsquo;.</li>
+  	<li>Maak de oefeningen in dit bestand</li>
+  	<li>Plaats het blok op de voorpagina.</li>
+  </ul>
+
+  <h2>Entities</h2>
+
+  <p>Toon een lijst met games in het &lsquo;New games&rsquo;-blok.</p>
+
+  <ul>
+  	<li>Kopieer het bestand NewGames.php uit oefeningen &lsquo;4 entity&rsquo;.</li>
+  	<li>Maak de oefeningen in dit bestand.</li>
+  </ul>
+
+  <h2>Access control</h2>
+
+  <p>Beperk de toegang tot games-recenties op basis van leeftijd van de (ingelogde) gebruiker.</p>
+
+  <ul>
+  	<li>Kopieer de functie wizzlern_pegi_node_access() uit wizzlern_pegi.module uit oefeningen &lsquo;5 access control&rsquo;.</li>
+  	<li>Maak de oefeningen die je daarin vind.</li>
+  	<li>Pas de toegangscontrole toe op de lijst met games in het blok. Kopieer de NewGames::build() method uit NewGames.php uit oefeningen &lsquo;5 access control&rsquo;.</li>
+  	<li>Maak de oefeningen die je daarin vind.</li>
+  </ul>
+
+  <h2>Een pagina</h2>
+
+  <p>Maak een pagina op URL &lsquo;games&rsquo; met een lijst van games. Gebruik de &lsquo;teaser&rsquo; view-mode voor weergave.</p>
+
+  <ul>
+  	<li>Maak een route-definitie. Kopieer wizzlern_pegi.routing.yml uit oefeningen &lsquo;5 pagina&rsquo;.</li>
+  	<li>Maak de oefeningen die je daarin vind.</li>
+  	<li>Maak een content controller class met een callback method. Kopieer WizzlernPegiContoller.php uit oefeningen &lsquo;5 pagina&rsquo;.</li>
+  	<li>Maak de oefeningen die je daarin vind.</li>
+  </ul>
+
+  <div title="Page 1">
+  	<div>
+  		<p>&nbsp;</p>
+  	</div>
+  </div>
+</body>
+</html>
