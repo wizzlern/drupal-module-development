@@ -7,9 +7,10 @@
 
 // EXCERCISES
 // Use namespacing for this class.
-// 1. Add the correct namespace of this class below.
+// 1. Add the correct namespace for this class below.
 // 2. Complete the @file definition above.
-// namespace ...
+
+namespace
 
 use Drupal\Core\Block\BlockBase;
 
