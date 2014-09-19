@@ -82,21 +82,23 @@ class NewGames extends BlockBase implements ContainerFactoryPluginInterface {
     $items = array();
 
     // EXCERCISES
+    // Query nodes that will be listed in this block.
     // 1. Find out what methods are available from $this->entityQuery.
     // 2. Find an entity query example that loads nodes.
     // 3. Write an entity query for: published nodes of type 'game', sorted
     //    most recent nodes first. Use debug() to output the query result.
-    // 4. Build an array of links to the nodes that have node titles as link text.
+    // 4. Build an array of links to the nodes that have node titles as link
+    //    text.
 
-    // $nodes is an array of nodes. The result form the entity query.
+    // $nodes is an array of nodes. The result of the entity query.
     $nodes = array();
     
     /** @var \Drupal\node\Entity\Node $node */
     foreach ($nodes as $node) {
-      $items[] = ''; // $items is an array of links. Build the links here.
+      $items[] = ''; // $items is an array of links. Add the links here.
     }
 
-    // This is how to render an HTML list of items.
+    // This is how you can render an HTML list of items.
     // @see template_preprocess_item_list
     return array(
       '#theme' => 'item_list',

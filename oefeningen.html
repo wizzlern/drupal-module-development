@@ -16,7 +16,7 @@
 
   <h2>Inhoudstypes</h2>
 
-  <p>Als redactie kan ik games-recenties invoeren. Iedere game kan worden voorzien van een leeftijdscategorie.</p>
+  <p>Als redactie kan ik game-recenties invoeren. Iedere game kan worden voorzien van een leeftijdscategorie.</p>
 
   <ul>
   	<li>Maak een inhoudstype &lsquo;game&rsquo; aan.</li>
@@ -32,7 +32,7 @@
 
   <p>&nbsp;</p>
 
-  <p>Als site eigenaar wil ik dat gebruikers alleen games-recenties kunnen zien van games die met hun leeftijd overeenkomen.</p>
+  <p>Als site eigenaar wil ik dat gebruikers alleen game-recenties kunnen zien van games die met hun leeftijd overeenkomen.</p>
 
   <ul>
   	<li>Voeg aan een gebruikersprofiel een veld toe voor de leeftijd.&nbsp;
@@ -97,19 +97,30 @@
   <p>Toon een lijst met games in het &lsquo;New games&rsquo;-blok.</p>
 
   <ul>
-  	<li>Kopieer het bestand NewGames.php uit oefeningen &lsquo;4 entity&rsquo;.</li>
-  	<li>Maak de oefeningen in dit bestand.</li>
+    <li>Kopieer het bestand NewGames.php uit oefeningen &lsquo;4 entity&rsquo; en overschrijf je eigen NewGames.php bestand.</li>
+    <li>Maak de oefeningen in dit nieuwe bestand.</li>
   </ul>
 
   <h2>Access control</h2>
 
-  <p>Beperk de toegang tot games-recenties op basis van leeftijd van de (ingelogde) gebruiker.</p>
+  <p>Beperk de toegang tot game-recenties op basis van leeftijd van de (ingelogde) gebruiker.</p>
 
   <ul>
-  	<li>Kopieer de functie wizzlern_pegi_node_access() uit wizzlern_pegi.module uit oefeningen &lsquo;5 access control&rsquo;.</li>
-  	<li>Maak de oefeningen die je daarin vind.</li>
+    <li>In hook_node_access() wordt gecontroleerd of de gebruiker toegang heeft tot de node.</li>
+    <li>Kopieer de functie wizzlern_pegi_node_access() uit wizzlern_pegi.module uit oefeningen &lsquo;5 access control&rsquo;.</li>
+    <li>Maak de oefeningen die je daarin vind.</li>
   	<li>Pas de toegangscontrole toe op de lijst met games in het blok. Kopieer de NewGames::build() method uit NewGames.php uit oefeningen &lsquo;5 access control&rsquo;.</li>
   	<li>Maak de oefeningen die je daarin vind.</li>
+  </ul>
+
+	<p>&nbsp;</p>
+
+  <p>Pas de toegangscontrole toe op de lijst met games in het blok.</p>
+
+  <ul>
+    <li>Vergelijk de code van NewGames::build() uit oefeningen &lsquo;5 access control&rsquo; met je eigen code.</li>
+    <li>Kopieer de oefeningen uit NewGames::build() naar je eigen code.</li>
+    <li>Maak deze oefeningen.</li>
   </ul>
 
   <h2>Een pagina</h2>
@@ -123,10 +134,5 @@
   	<li>Maak de oefeningen die je daarin vind.</li>
   </ul>
 
-  <div title="Page 1">
-  	<div>
-  		<p>&nbsp;</p>
-  	</div>
-  </div>
 </body>
 </html>

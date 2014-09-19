@@ -6,8 +6,11 @@
  */
 
 // EXCERCISES
-// 1. Add the correct of this class here.
-// namespace ...
+// Use namespacing for this class.
+// 1. Add the correct namespace for this class below.
+// 2. Complete the @file definition above.
+
+namespace
 
 use Drupal\Core\Block\BlockBase;
 
@@ -26,13 +29,15 @@ class NewGames extends BlockBase {
    * Implements \Drupal\block\BlockBase::blockBuild().
    */
   public function build() {
-    $output = 'FIX ME';
+    $output = NULL;
     $items = array();
 
     // EXCERCISES
-    // 1. Find out what formats for $output are allowed.
+    // Add dummy block output.
+    // 1. What formats for $output are allowed here? Search for examples.
     // 2. Output some dummy text in the block.
-    // 3. $items is an array of strings. Make this into an HTML-list as output.
+    // 3. $items is an array of strings. Make this into an HTML-list (<ul><li>)
+    //    as output.
 
     return $output;
   }
