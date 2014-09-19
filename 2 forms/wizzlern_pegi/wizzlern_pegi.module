@@ -8,9 +8,10 @@
 /**
  * Implements hook_form_alter().
  *
- * Uncomment this function to find the form ID of forms on any page. This is a
- * frequently use trick to find the ID. hook_form_alter() is execute on all
- * forms, but for performance hook_form_FORM_ID_alter() is preferred.
+ * Uncomment this function to determine the form ID of forms on any page. This
+ * is a frequently used trick to find the ID. hook_form_alter() is executed on
+ * all forms, but for performance it is preferred to implement
+ * hook_form_FORM_ID_alter().
  */
 /*
 function wizzlern_pegi_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
@@ -38,7 +39,7 @@ function wizzlern_pegi_form_user_login_form_alter(&$form, \Drupal\Core\Form\Form
 /**
  * Implements hook_form_FORM_ID_alter().
  *
- * Alters the user registration form. Changes the order fields.
+ * Alters the user registration form. Changes the order of the fields.
  */
 function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   // The mail and name fields are grouped in 'account'. Adding field to existing

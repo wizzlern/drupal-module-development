@@ -1,6 +1,6 @@
 # name is required.
 name: Wizzlern Pegi
-# type is required. It can be 'module', 'theme' and 'profile'.
+# type is required. It can be 'module', 'theme' or 'profile'.
 type: module
 # description is shown on the module overview pages.
 description: 'Age restricted content using Pegi classification for Drupal 8 development training.'
