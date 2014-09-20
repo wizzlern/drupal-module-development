@@ -6,7 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
-
+use Drupal\Core\Access\AccessResult;
 
 /**
  * Implements hook_ENTITY_TYPE_access().
@@ -27,16 +27,15 @@ use Drupal\user\Entity\User;
  *    The account trying to access the entity.
  * @param string $langcode
  *    The code of the language $entity is accessed in.
- * @return bool|null
- *   A boolean to explicitly allow or deny access, or NULL to neither allow nor
- *   deny access.
+ *
+ * @return \Drupal\Core\Access\AccessResultInterface
+ *    The access result.
  *
  * @see hook_ENTITY_TYPE_access()
  */
 function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
-  /** @var \Drupal\node\Entity\Node $entity */
-  $access = NULL;
-  
+  $access = AccessResult::create();
+
   // EXCERCISES
   // 1. Check out the documentation of hook_ENTITY_TYPE_access() to understand
   //    the $entity, $operation, $account and $langcode parameters.

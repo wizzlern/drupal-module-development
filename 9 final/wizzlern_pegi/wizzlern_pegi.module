@@ -6,6 +6,7 @@
  */
 
 use Drupal\user\Entity\User;
+use Drupal\Core\Access\AccessResult;
 
 /**
  * Implements hook_form_alter().
@@ -68,15 +69,15 @@ function wizzlern_pegi_form_user_register_form_alter(&$form, \Drupal\Core\Form\F
  *    The account trying to access the entity.
  * @param string $langcode
  *    The code of the language $entity is accessed in.
- * @return bool|null
- *   A boolean to explicitly allow or deny access, or NULL to neither allow nor
- *   deny access.
+ *
+ * @return \Drupal\Core\Access\AccessResultInterface
+ *    The access result.
  *
  * @see hook_ENTITY_TYPE_access()
  */
 function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, $operation, \Drupal\Core\Session\AccountInterface $account, $langcode) {
   /** @var \Drupal\node\Entity\Node $entity */
-  $access = NULL;
+  $access = AccessResult::create();
 
   if ($entity->hasField('field_allowed_age')) {
     $allowed_age = $entity->field_allowed_age->value;
@@ -85,10 +86,12 @@ function wizzlern_pegi_node_access(\Drupal\Core\Entity\EntityInterface $entity, 
     $user = User::load($account->id());
     $age = $user->field_user_age->value;
 
-    // Deny access when user is too young. If old enough, we return NULL, not
-    // TRUE. Other modules can still deny access.
+    // Deny access when user is too young. If old enough, we return an
+    // instantiated AccessResult object that neither explicitly allows nor
+    // explicitly forbids access. Other modules can still deny access. If too
+    // young we explicitly forbid access.
     if ($age < $allowed_age) {
-      $access = FALSE;
+      $access = AccessResult::forbidden();
     }
   }
 
